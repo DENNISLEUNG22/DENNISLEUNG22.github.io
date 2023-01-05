@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login and Register</title>
+    <link rel="stylesheet" href="oldLogin.css" />
+            <!-- fontAwesome -->
+            <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+
+          />
+          <!-- fontAwesome -->
+  </head>
+  <body>
+    <div class="hero">
+      <div class="form-box">
+        <a href="/">
+            <button  class="closeButton" ><i class=" fa-solid fa-angles-left"></i></button>
+          </a>
+        <div class="button-box">
+            
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn" onclick="login()">登入</button>
+          <button type="button" class="toggle-btn" onclick="register()">建立帳戶</button>
+        </div>
+        <div class="social-icons">
+          <a href="/connect/google" ><img src="/resource/gp.png"></img></a>
+          <img src="/resource/fb.png"></img>
+          <img src="/resource/tw.png"></img>
+        </div>
+
+        <!-- <form id="login" class="input-group" method="post" action="/login"> -->
+        <!-- <form id="login" class="input-group"> -->
+            <input type="email" class="input-field" placeholder="輸入您的 登記電郵" name="email" required>
+            <input type="password" class="input-field"  placeholder="輸入您的 登記密碼" name="password" required>
+            <!-- <input type="checkbox" class="check-box" ><span>Remember Password</span> -->
+            <button type="submit" class="submit-btn">登入</button>
+            <!-- <div id="message"></div> -->
+        </form>
+        
+        <!-- <form id="register" class="input-group"> -->
+        <!-- <form id="register" class="input-group" method="post" action="/register"> -->
+          <input type="email" class="input-field" placeholder="請輸入 電郵" name="email"required>
+          <input type="password" class="input-field" placeholder="請輸入 密碼" name="password"required>
+          <input type="text" class="input-field" placeholder="請輸入 用戶名稱" name="username"required>
+          <input type="text" class="input-field" placeholder="請輸入 聯絡電話" name="phone"required>
+            <label for="gender">您的性別：</label>
+              <select name="gender" id="gender">
+                <option value="">--請選擇您的性別--</option>
+                <option value="m">男士</option>
+                <option value="f">女士</option>
+                <option value="n">以上皆非</option>
+              </select> 
+            <label for="age">您的年齡層 :</label>
+              <select name="age" id="age">
+                <option value="">--請選擇您的年齡層--</option>
+                <option value=1>40歲或以上</option>
+                <option value=2>18歲或以上</option>
+                <option value=3>12歲 ~ 18歲</option>
+                <option value=4>6歲 ~ 11歲</option>
+              </select> 
+              <!-- <div><input type="checkbox" class="check-box" ><span>I agree to the terms & conditions</span></div> -->
+            <button type="submit" class="submit-btn">確認建立帳戶</button>
+        </form>
+      </div>
+    </div>
+    <script>
+        var x = document.getElementById("login")
+        var y = document.getElementById("register")
+        var z = document.getElementById("btn")
+
+        function register(){
+        x.style.left = "-400px"
+        y.style.left = "50px"
+        z.style.left = "110px"
+        }
+        function login(){
+        x.style.left = "50px"
+        y.style.left = "450px"
+        z.style.left = "0"
+        }
+    </script>
+    <script src="login.js"></script>
+  </body>
+</html>

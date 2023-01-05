@@ -1,0 +1,23 @@
+<ion-header collapse="fade">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Selected Bean</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card
+    *ngFor="let cafe of CafeSSS"
+    routerLink="/leafletmap"
+    [queryParams]="{ lat: cafe.address[0], lng: cafe.address[1] }"
+  >
+    <ion-card-header>
+      <ion-card-title>{{cafe.name}}</ion-card-title>
+      <ion-card-content>Bean type: {{cafe.bean}}</ion-card-content>
+    </ion-card-header>
+
+    <ion-card-content> {{cafe . address }}</ion-card-content>
+  </ion-card>
+</ion-content>

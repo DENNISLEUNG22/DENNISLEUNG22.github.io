@@ -1,0 +1,55 @@
+
+cafe_profile
+------------
+id serial PK
+name varchar(255)
+icon varchar(512)
+background_photo varchar(512)
+address varchar(512)
+area_id integer FK - area.id
+geolocation point
+cafe_timetable_id integer FK - cafe_timetable.id
+vibs varchar(255)
+taste varchar(255)
+
+
+coffee_beans_provided
+---------------------
+id serial PK
+cafe_profile_id integer FK >- cafe_profile.id
+coffee_beans_id integer FK >- coffee_beans.id
+
+
+coffee_beans
+------------
+id serial PK
+brand varchar(255)
+name varchar(255)
+origin varchar(255)
+variety varchar(255)
+flavors varchar(255)
+weight_g integer
+price_hkd decimal(10,2)
+photo varchar(512)
+
+
+cafe_timetable
+--------------
+id serial PK
+date_of_week varchar(255)
+opening_status varchar(255)
+opening_time time
+closing_time time
+
+
+area
+----
+id integer PK
+area_name varchar(100)
+
+
+district
+--------
+id integer PK
+district_name varchar(100)
+area_id integer FK - area.id

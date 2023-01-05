@@ -1,0 +1,93 @@
+# Visualize on https://erd.surge.sh
+# or https://quick-erd.surge.sh
+#
+# Relationship Types
+#  -    - one to one
+#  -<   - one to many
+#  >-   - many to one
+#  >-<  - many to many
+#  -0   - one to zero or one
+#  0-   - zero or one to one
+#  0-0  - zero or one to zero or one
+#  -0<  - one to zero or many
+#  >0-  - zero or many to one
+#
+////////////////////////////////////
+
+
+shop
+----
+id integer PK
+name varchar(255) NULL
+address text
+latlng point
+start_time text NULL
+end_time text NULL
+tel text NULL
+owner_id integer NULL FK >- user.id
+bean varchar(255) NULL
+
+
+user
+----
+id integer PK
+username text
+password_hash text
+
+
+taste_report
+------------
+id integer PK
+coffee_variant_id integer FK >- coffee_variant.id
+user_id integer FK >- user.id
+bitter integer
+sweet integer
+soft integer
+milk integer
+sour integer
+cream integer
+latte_art integer
+
+
+coffee
+------
+id integer PK
+shop_id integer FK >- shop.id
+name text
+
+
+coffee_variant
+--------------
+id integer PK
+coffee_id integer FK >- coffee.id
+name text
+price integer
+
+
+coffee_content
+--------------
+id integer PK
+coffee_id integer FK >- coffee.id
+bean_id integer FK >- bean.id
+
+
+bean
+----
+id integer PK
+brand text
+
+
+shop_images
+-----------
+id integer PK
+shop_id integer FK >- shop.id
+image integer
+
+
+spatial_ref_sys
+---------------
+srid integer
+auth_name varchar(256) NULL
+auth_srid integer NULL
+srtext varchar(2048) NULL
+proj4text varchar(2048) NULL

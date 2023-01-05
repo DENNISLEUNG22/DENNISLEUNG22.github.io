@@ -1,0 +1,48 @@
+:root {
+  --buttonColor: rgb(16, 47, 71);
+  --Boxcolor: rgb(231, 133, 49);
+  --BGcolor: rgb(243, 82, 82);
+  --footerColor: rgb(243, 193, 95);
+  --wordColor: rgb(254, 246, 237);
+  --font-style: "Nunito Sans", sans-serif;
+}
+body {
+  /* background-color: #ffe8d6; */
+  /* background-image: url("/backgroundimage/agility-1850711_960_720.jpeg"); */
+  bottom: 1px;
+}
+
+footer {
+  height: 50px;
+  background: var(--footerColor);
+  color: #fef6ed;
+  font-weight: 100%;
+  font-size: 25px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background: var(--buttonColor);
+  font-size: 35px;
+  font-weight: 100%;
+}
+button {
+  margin: 10px;
+}
+.optgroup {
+  max-width: max-content;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-style);
+}
+.background {
+  background: var(--BGcolor);
+}
+
+

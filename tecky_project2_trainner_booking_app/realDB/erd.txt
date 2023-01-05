@@ -1,0 +1,60 @@
+
+users
+-----
+id integer PK
+username varchar(100)
+password varchar(100)
+age integer
+gender varchar(30)
+phone integer
+email varchar(100)
+profile_icon text
+
+
+event
+-----
+id integer PK
+trainer_id integer FK -< users.id
+event_name varchar(100)
+main_event_type_id integer FK - main_event_type.id
+date date
+start_time timestamp
+end_time timestamp
+area_id integer FK - area.id
+full_address text
+class_size integer
+caption text
+event_profile_photo text
+
+
+training_class
+--------------
+id integer PK
+event_id integer FK - event.id
+student_id integer FK >-< users.id
+
+
+main_event_type
+---------------
+id integer PK
+name varchar(100)
+
+
+sub_event_type
+--------------
+id integer PK
+name varchar(100)
+main_event_type_id integer FK - main_event_type.id
+
+
+area
+----
+id integer PK
+name varchar(100)
+
+
+district
+--------
+id integer PK
+name varchar(100)
+area_id integer FK - area.id

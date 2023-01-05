@@ -1,0 +1,91 @@
+
+
+:root {
+  --headerColor: rgb(16, 47, 71);
+  --footerColor: rgb(243, 193, 95);
+  --inputBoxColor: rgb(250, 145, 53);
+  --RedColor: rgb(243, 82, 82);
+  --wordColor: rgb(254, 246, 237);
+  --font-style: "Nunito Sans", sans-serif;
+}
+footer {
+  height: 50px;
+  background: var(--footerColor);
+  color: var(--headerColor);
+  font-weight: 100%;
+  font-size: 25px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background-color: var(--headerColor);
+  color: var(--footerColor);
+  font-size: 35px;
+  font-weight: 100%;
+}
+button {
+  margin: 10px;
+}
+.optgroup {
+  max-width: max-content;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-style);
+    /* background-color: #ffe8d6; */
+  /* background-image: url("/backgroundimage/agility-1850711_960_720.jpeg"); */
+  bottom: 1px;
+}
+.background {
+  background: #FFF;
+}
+.welcomeWord{
+  display: inline-flex;
+  font-size: 20px;
+  margin: 10px;
+}
+.goBackButtonColor{
+  color: var(--footerColor);
+}
+.logoutButton {
+  color: var(--footerColor);
+  border: none;
+  top: 0;
+  right: 0;
+  background: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* footer {
+  height: 50px;
+  background: #000;
+  color: white;
+  font-weight: 100%;
+  font-size: 25px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background: #000;
+  font-size: 35px;
+}
+button {
+  margin: 10px;
+}
+
+ */

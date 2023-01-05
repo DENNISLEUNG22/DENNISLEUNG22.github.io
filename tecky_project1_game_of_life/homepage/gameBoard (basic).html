@@ -1,0 +1,352 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+  </head>
+  <body>
+    <div class="topGameBoard">
+      <h1>Game of Life</h1>
+    </div>
+    <div id="canvas" class="changeToFreeModePic"></div>
+    <div class="bottomGameBoard">
+      <button
+        onclick="spaceMode()"
+        class="bottombutton rounded-pill m-10 col-4"
+      >
+        SpaceShip Mode
+      </button>
+      <button onclick="freeMode()" class="bottombutton rounded-pill m-10 col-4">
+        Free Mode
+      </button>
+    </div>
+    <div class="bottomGameBoard">
+      <button id="resume" class="bottombutton rounded-pill m-10 col-2">
+        Go
+      </button>
+      <button id="pause" class="bottombutton rounded-pill m-10 col-2">
+        Stop
+      </button>
+      <!-- <button id = resume class = "button rounded-pill m-3" onclick="setTheme('red')">Resume </button> -->
+      <button id="reset-game" class="bottombutton rounded-pill m-10 col-2">
+        Restart
+      </button>
+    </div>
+    <div class="bottomGameBoard">
+      <input type="range" id="frameRate" min="0" max="144" class="m-10 col-7" />
+      ...Faster?
+    </div>
+    <div class="bottomGameBoard"></div>
+
+    <!-- <input
+      type="range"
+      id="bg-slider"
+      min="red"
+      max="rgba(0,0,0,0.9)"
+    />
+    bgColor -->
+
+    <!-- basic script line -- -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"
+      target="_blank"
+    ></script>
+    <script src="index.js"></script>
+    <!-- ------------------------------------------------------------------ -->
+    <script>
+      let bgSlider = document.querySelector("#bg-slider");
+      const unitLength = 10;
+      let boxColor = "greenyellow";
+      const strokeColor = 20;
+      let bgColor = "rgba(0,0,0,0)";
+      let columns; /* To be determined by window width */
+      let rows; /* To be determined by window height */
+      let currentBoard;
+      let nextBoard;
+      // let fr = 30; //starting FPS
+      let clr;
+      var audio = new Audio("spaceship.wav")
+      
+      audio.volume = 0.2
+      var backgroundMusic = new Audio("background.wav")
+      backgroundMusic.volume = 0.2
+
+      function setup() {
+        const canvas = createCanvas(windowWidth, windowHeight - 140);
+        canvas.parent(document.querySelector("#canvas"));
+        columns = floor(width / unitLength);
+        rows = floor(height / unitLength);
+        currentBoard = [];
+        nextBoard = [];
+        for (let i = 0; i < columns; i++) {
+          currentBoard[i] = [];
+          nextBoard[i] = [];
+        }
+        init();
+
+        // <!-- ------------------------------------------------------------------ -->
+
+        // <!-- ------------------------------------------------------------------ -->
+      }
+
+      function init() {
+        canvas.classList.add("changeToFreeModePic");
+        for (let i = 0; i < columns; i++) {
+          for (let j = 0; j < rows; j++) {
+            currentBoard[i][j] = 0;
+            nextBoard[i][j] = 0;
+          }
+        }
+        currentBoard[3][10] = 1;
+        currentBoard[4][10] = 1;
+        currentBoard[5][10] = 1;
+        currentBoard[6][10] = 1;
+        currentBoard[2][11] = 1;
+        currentBoard[6][11] = 1;
+        currentBoard[6][12] = 1;
+        currentBoard[2][13] = 1;
+        currentBoard[5][13] = 1;
+
+        currentBoard[3 + 40][10] = 1;
+        currentBoard[4 + 40][10] = 1;
+        currentBoard[5 + 40][10] = 1;
+        currentBoard[6 + 40][10] = 1;
+        currentBoard[2 + 40][11] = 1;
+        currentBoard[6 + 40][11] = 1;
+        currentBoard[6 + 40][12] = 1;
+        currentBoard[2 + 40][13] = 1;
+        currentBoard[5 + 40][13] = 1;
+      }
+
+      function draw() {
+        clear();
+        generate();
+        for (let i = 0; i < columns; i++) {
+          for (let j = 0; j < rows; j++) {
+            if (currentBoard[i][j] == 1) {
+              fill(boxColor);
+            } else {
+              fill(bgColor);
+            }
+            stroke(strokeColor);
+            rect(i * unitLength, j * unitLength, unitLength, unitLength);
+          }
+        }
+      }
+
+      function generate() {
+        for (let x = 0; x < columns; x++) {
+          for (let y = 0; y < rows; y++) {
+            let neighbors = 0;
+            for (let i of [-1, 0, 1]) {
+              for (let j of [-1, 0, 1]) {
+                if (i == 0 && j == 0) {
+                  continue;
+                }
+                neighbors +=
+                  currentBoard[(x + i + columns) % columns][
+                    (y + j + rows) % rows
+                  ];
+              }
+            }
+            if (currentBoard[x][y] == 1 && neighbors < 2) {
+              nextBoard[x][y] = 0;
+            } else if (currentBoard[x][y] == 1 && neighbors > 3) {
+              nextBoard[x][y] = 0;
+            } else if (currentBoard[x][y] == 0 && neighbors == 3) {
+              nextBoard[x][y] = 1;
+            } else {
+              nextBoard[x][y] = currentBoard[x][y];
+            }
+
+          }
+        }
+
+        [currentBoard, nextBoard] = [nextBoard, currentBoard];
+      }
+
+
+      
+      function mouseDragged() {
+        if (mouseX > unitLength * columns || mouseY > unitLength * rows) {
+          return;
+        }
+        const x = Math.floor(mouseX / unitLength);
+        const y = Math.floor(mouseY / unitLength);
+        stroke(strokeColor);
+        if (canvas.classList.contains("changeToFreeModePic")) {
+          currentBoard[x][y] = 1;
+          rect(x * unitLength, y * unitLength, unitLength, unitLength);
+          fill(boxColor);
+        } else if (canvas.classList.contains("changeToSpacePic")) {
+          currentBoard[x - 1][y - 2] = 1;
+          currentBoard[x][y - 2] = 1;
+          currentBoard[x + 1][y - 2] = 1;
+          currentBoard[x - 1][y - 1] = 1;
+          currentBoard[x + 2][y - 1] = 1;
+          currentBoard[x - 1][y] = 1;
+          currentBoard[x - 1][y + 1] = 1;
+          currentBoard[x][y + 2] = 1;
+          currentBoard[x + 2][y + 2] = 1;
+          rect(
+            (x - 1) * unitLength,
+            (y - 2) * unitLength,
+            unitLength,
+            unitLength
+          );
+          rect(x * unitLength, (y - 2) * unitLength, unitLength, unitLength);
+          rect(
+            (x + 1) * unitLength,
+            (y - 2) * unitLength,
+            unitLength,
+            unitLength
+          );
+          rect(
+            (x - 1) * unitLength,
+            (y - 1) * unitLength,
+            unitLength,
+            unitLength
+          );
+          rect(
+            (x + 2) * unitLength,
+            (y - 1) * unitLength,
+            unitLength,
+            unitLength
+          );
+          rect((x - 1) * unitLength, y * unitLength, unitLength, unitLength);
+          rect(
+            (x - 1) * unitLength,
+            (y + 1) * unitLength,
+            unitLength,
+            unitLength
+          );
+          rect(x * unitLength, (y + 2) * unitLength, unitLength, unitLength);
+          rect(
+            (x + 2) * unitLength,
+            (y + 2) * unitLength,
+            unitLength,
+            unitLength
+          );
+          audio.currentTime = 0
+          audio.play()
+        }
+
+      }
+      function mousePressed() {
+        mouseDragged();
+      }
+
+      document
+        .querySelector("#reset-game")
+        .addEventListener("click", function () {
+          init();
+          loop();
+          if (!canvas.classList.contains("changeToFreeModePic")) {
+            spaceMode();
+            
+          } else if (!canvas.classList.contains("changeToSpacePic")) {
+            freeMode();
+          }
+        });
+
+      document.querySelector("#pause").addEventListener("click", function () {
+        noLoop();
+        backgroundMusic.pause()
+        mouseDragged();
+        
+      });
+
+      document.querySelector("#resume").addEventListener("click", function () {
+        loop();
+        backgroundMusic.play()
+      });
+
+      let changeFrameRate = document.querySelector("#frameRate");
+      changeFrameRate.addEventListener("input", () => {
+        frameRate(+changeFrameRate.value);
+        loop();
+      });
+      function freeMode() {
+        backgroundMusic.pause()
+        noLoop();
+        init();
+        canvas.classList.remove("changeToSpacePic");
+        canvas.classList.add("changeToFreeModePic");
+      }
+      function spaceMode() {
+        backgroundMusic.currentTime = 0
+        backgroundMusic.play()
+        loop();
+        init();
+        canvas.classList.remove("changeToFreeModePic");
+        canvas.classList.add("changeToSpacePic");
+        function mouseReleased() {
+          loop();
+          frameRate(60);
+          
+         
+        }
+      }
+
+      let boxes = document.querySelectorAll(".bottombutton");
+      for (let i of boxes) {
+        i.onmouseenter = () => {
+          i.classList.add("changeColor");
+          
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  .changeToSpacePic {
+    background: url("starsbg2.jpeg") center;
+    
+  }
+  .changeToFreeModePic {
+    background: url("spacebackground.png") center;
+    
+  }
+  .topGameBoard {
+    display: flex;
+    color: azure;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: black;
+    border-bottom: 2px solid var(red);
+  }
+  .bottomGameBoard {
+    color: azure;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+  }
+
+  .bottombutton.changeColor {
+    background-color: azure;
+  }
+  .bottombutton.changeColor:hover {
+    background-color: #b8fbfbef;
+  }
+</style>
+
+<!-- <audio src="click.mp3" id="clickEffect"></audio> -->

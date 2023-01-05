@@ -1,0 +1,23 @@
+.map-container {
+  //   height: 300px;
+  height: 50%;
+  width: 100%;
+}
+
+.seebutton {
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.seebutton .icon {
+  font-size: 30px;
+  color: #000;
+}
+
+.seebutton .text {
+  font-size: 30px;
+}

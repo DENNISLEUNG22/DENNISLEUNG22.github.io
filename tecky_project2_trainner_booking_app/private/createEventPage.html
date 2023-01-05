@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Event</title>
+    <!-- bootstrap only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- icon  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--  fontAwsome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="role.css" />
+  </head>
+  <body class="background">
+  <!-- ---------------------------header------------------------------------- -->
+    <header id="notYetLogin" class="fixed-top ">
+      <a href="/"> <i class="fa-solid fa-angles-left goBackButtonColor"  ></i ></a>
+      <a href="/login.html" ><i class="fa-solid fa-person-circle-plus goBackButtonColor"></i ></a>
+    </header>
+  
+    <header id="LoginED" class="fixed-top">
+      <a href="/"><i class="fa-solid fa-angles-left goBackButtonColor" ></i ></a>
+          <div id="headerUsername" type="text" name="username" class="welcomeWord"></div> 
+  
+        <form method="post" action="/logout" >
+          <button type="submit" class="logoutButton" >
+            <i class="fa-solid fa-arrow-right-from-bracket "></i>
+          </button>
+        </form>
+    </header>
+  <!-- ---------------------------header------------------------------------- -->
+<!--  -->
+<!-- Create Event Form -->
+<!--  -->
+<div class="create-event-box">
+  <!-- justify-content-center -->
+<form
+  action="/event"
+  method="POST"
+  id="create"
+  enctype="multipart/form-data"
+>
+<div>
+    <h1 class="text-center">建立活動</h1>
+    <div>
+      <div>
+      
+        <label>
+          活動名稱:
+          <input
+            type="text"
+            name="eventName"
+            
+            required
+          />
+        </label>
+
+      </div>
+      <div>
+
+        <label for="mainEventType">活動種類:</label>
+        <select name="mainEventType" id="mainEventType" action="/selectMainEvent" required>
+          
+        </select>
+      
+    </div>
+    <div>
+      <label for="subEventType">活動細類:</label>
+      <select name="subEventType" id="subEventType" action="/subEventType" required>
+      </select> 
+    </div>
+    <div>
+      <label for="ageGroup">建議年齡層:</label>
+              <select name="ageGroup" id="ageGroup">
+                <option value="1">40歲 或以上</option>
+                <option value="2">18歲 或 以上</option>
+                <option value="3">12歲 ~ 18歲</option>
+                <option value="4">6歲 ~ 11歲</option>
+              </select> 
+    </div>
+    <div>
+      <label>
+        日期:
+        <input
+          type="date"
+          name="date"
+          required
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        開始時間:
+        <input
+          type="time"
+          name="startTime"
+          placeholder="Input your time here"
+          required
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        完結時間:
+        <input
+          type="time"
+          name="endTime"
+          placeholder="Input your time here"
+          required
+        />
+      </label>
+    </div>
+    <div>
+      <label for="area">所在區域:</label>
+              <select name="area" id="area">
+                <option value="1">香港島</option>
+                <option value="2">九龍</option>
+                <option value="3">新界西</option>
+                <option value="4">新界東</option>
+              </select>
+    </div>
+    <div>
+      <label for="district">所在地區:</label>
+              <select name="district" id="district">
+                <option value="1">中西區</option>
+                <option value="2">灣仔區</option>
+                <option value="3">東區</option>
+                <option value="4">南區</option>
+                <option value="5">油尖旺區</option>
+                <option value="6">深水埗區</option>
+                <option value="7">九龍城區</option>
+                <option value="8">黃大仙區</option>
+                <option value="9">觀塘區</option>
+                <option value="10">葵青區</option>
+                <option value="11">荃灣區</option>
+                <option value="12">屯門區</option>
+                <option value="13">元朗區</option>
+                <option value="14">離島區</option>
+                <option value="15">北區</option>
+                <option value="16">大埔區</option>
+                <option value="17">沙田區</option>
+                <option value="18">西貢區</option>
+              </select>
+    </div>
+    <div>
+      <label>
+        詳細地址:
+        <input
+          type="text"
+          name="fullAddress"
+          required
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        活動人數:
+        <input
+          type="text"
+          name="classSize"
+          required
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        其他活動詳情:
+        <input
+          type="text"
+          name="caption"
+          required
+        />
+      </label>
+    </div>
+
+<!--  -->
+<!-- multipart form -->
+<!--  check it next day-->
+    <!-- <div>
+      <label>
+        Area
+        <input
+          type="text"
+          name="text"
+          placeholder="Input your area here"
+          required
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        District
+        <input
+          type="text"
+          name="text"
+          placeholder="Input your district here"
+          required
+        />
+      </label>
+    </div> -->
+    <label>
+      活動照片:
+      <input type="file" name="profile" />
+    </label>
+  </div>
+  <div>
+    <input type="submit" value="Create Event" />
+    
+  </div>
+</form>
+
+</div>
+
+    <!-- ---------------------------footer------------------------------------- -->
+   <div>
+ <footer class="d-flex justify-content-evenly fixed-bottom mt-10">
+      <a href="/index.html"><i class="fa-solid fa-house"style="color: #102f47"></i></a>
+      <a href="/studentCalendarPage.html"><i class="fa-regular fa-calendar-days" style="color: #102f47"></i></a>
+      <a href="/createEventPage.html"><i class="fa-solid fa-plus"style="color:#102f47"></i></i></a>
+      <a href="/updateBasicInfo.html"><i class="fa-solid fa-gear"style="color:#102f47"></i></a>
+    </footer>
+    
+   </div>
+   
+    <!-- ---------------------------footer------------------------------------- -->
+<script src="createEventPage.js"></script>
+</body>
+</html>

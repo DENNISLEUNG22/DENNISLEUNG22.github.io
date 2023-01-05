@@ -1,0 +1,7 @@
+{
+  "name": "project3_coffee",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

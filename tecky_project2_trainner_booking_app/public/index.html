@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Page</title>
+    <!-- bootstrap only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- icon  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <!--  fontAwsome-->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- <link rel="stylesheet" href="index.css" /> -->
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="role.css" />
+  </head>
+  <body class="background">
+<!-- ---------------------------header------------------------------------- -->
+    <header id="notYetLogin" class="fixed-top ">
+      <a href="/"> <i class="fa-solid fa-angles-left goBackButtonColor"  ></i ></a>
+      <a href="/login.html" ><i class="fa-solid fa-person-circle-plus goBackButtonColor"></i ></a>
+    </header>
+
+    <header id="LoginED" class="fixed-top">
+      <a href="/"><i class="fa-solid fa-angles-left goBackButtonColor" ></i ></a>
+          <div id="headerUsername" type="text" name="username" class="welcomeWord"></div> 
+
+        <form method="post" action="/logout" >
+          <button type="submit" class="logoutButton" >
+            <i class="fa-solid fa-arrow-right-from-bracket "></i>
+          </button>
+        </form>
+    </header>
+<!-- ---------------------------header------------------------------------- -->
+
+<!--            -->
+<!--SELECT AREA -->
+<!--            -->
+
+<filter class="container">
+  <div class="row" >
+    <div class="col d-flex  justify-content-center margin5px">
+      <button type="button" class="btn btn-outline-warning btn-sm">
+      <label form="start">日期:</label>
+      <input type="date" id="eventDate" name="trip-start" value="0" min="2022-01-01" max="2047-07-01">
+      </button></div>
+<!--      -->
+<!-- type -->
+<!--      -->
+    <div class="col d-flex justify-content-center margin5px">
+    <button type="button" class="btn btn-outline-secondary btn-sm">活動種類:
+      <label>
+        <select id="typeContainer" name="type">
+          <!-- default -->
+        
+       
+          <option id="mainEventTypeId" value="0">全部</option>
+
+        </select>
+      </label>
+    </button>
+  </div>
+<!--      -->
+<!-- LOCAl -->
+<!--      -->
+<div class="w-100"></div>
+  <button type="button" class="btn btn-outline-secondary col d-flex   justify-content-center
+  margin5px indexButtonColor" >所在地區：
+        <select class="col"id="districtId"label="Hk Island">
+          <!-- default -->
+          <optgroup label="不限">
+            <option  value="0">全部
+            </option>
+          </optgroup>
+          <!-- Hkisland -->
+          <optgroup id="hkIsland"label="HkIsland">
+            <option id= "hkIslandGroup" value="HkIslandGroup">Hkxxx
+            </option>
+          </optgroup>
+         <!-- Kowloon -->
+          <optgroup id="kowloon" label="Kowloon">
+            <option id= "kowloonGroup" value="KowloonGroup">KWxxx</option>
+          </optgroup>
+          <!-- newWEST -->
+          <optgroup id="ntWest" label="NewTerritoriesWest">
+            <option id= "ntWestGroup" value="NTWgroup">NTWxxx</option>
+          </optgroup>
+          <!-- newEAST -->
+          <optgroup id="ntEast" label="NewTerritoriesEast">
+            <option id= "ntEastGroup"value="NTEgroup">NTExxx</option>        
+          </optgroup>
+    </select>
+  </button>  
+<!--          -->
+<!-- SUB TYPE -->
+<div> </div>
+<!--          -->
+  <button type="button" class="btn btn-outline-warning col d-flex justify-content-center margin5px btn-sm" value="0">細類: 
+      <select class="col" id="subEvent" name="subEventGroup">
+<!--  -->
+<!--  -->
+<!--  -->
+        <option id="subEventId"  value="0">全部</option>
+      </select>
+    </button>
+  </div>
+  <!-- submit -->
+  <div class="d-grid gap-2 col-6 mx-auto ">
+<button class="btn btn-outline-danger btn-sm" id="submit-button"type="submit">提交</button>
+  </div>
+
+
+  <div class="d-flex justify-content-center">
+  
+ </div>
+</filter>
+
+  <option id="subEventId" value="0">
+        
+        
+     
+      <!-- submit -->
+ <div class="d-flex justify-content-center">
+    <button id="submit-button" type="submit"  value="0"></button>
+      </div></option>
+</filter>
+
+<!--event details show in block-->
+<!--event details show in block-->
+<!--event details show in block-->
+
+<div class="d-flex justify-content-center ">
+  <h3 class="hidden" id="hiddenEvent"> 還未有活動喔 ～ </h3>
+</div>
+
+
+
+<div id="card-container" >
+
+  <div class="card card-text  bg-dark text-white margin5px">
+    <a class="bg-dark text-white" id="event-link" href=
+     >
+    
+    <img src="" class="card-img" alt="event-photo"/>
+    
+    <div class="card-img-overlay">
+      <h5 class="card-title"><mark>Event title :</mark></h5>
+
+      <p class="trainer">導師:</p>
+      <p class="date">日期:</p>
+      <p class="area">地區:</p>
+      <p class="caption">標題 :</p>
+    </div>
+  </a>
+  </div>
+</div>
+
+
+<!--event details show in block-->
+<!--event details show in block-->
+<!--event details show in block-->
+
+
+    <!-- ---------------------------footer------------------------------------- -->
+    <footer class="d-flex justify-content-evenly fixed-bottom mt-10">
+      <a href="/index.html"><i class="fa-solid fa-house"style="color: #102f47"></i></a>
+      <a href="/studentCalendarPage.html"><i class="fa-regular fa-calendar-days" style="color: #102f47"></i></a>
+      <a href="/createEventPage.html"><i class="fa-solid fa-plus"style="color:#102f47"></i></i></a>
+      <a href="/updateBasicInfo.html"><i class="fa-solid fa-gear"style="color:#102f47"></i></a>
+    </footer>
+    <!-- ---------------------------footer------------------------------------- -->
+
+  </body>
+
+  <script src="index.js"></script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Success</title>
+    <!-- Bootstrap  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="payment.css" />
+    <link rel="stylesheet" href="role.css" />
+  <!-- ---------------------------checkout api------------------------------------- -->
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+  <!-- ---------------------------checkout api------------------------------------- -->
+
+  </head>
+  <body class="background">
+  <!-- ---------------------------header------------------------------------- -->
+    <header id="notYetLogin" class="fixed-top ">
+      <a href="/"> <i class="fa-solid fa-angles-left goBackButtonColor"  ></i ></a>
+      <a href="/login.html" ><i class="fa-solid fa-person-circle-plus goBackButtonColor"></i ></a>
+    </header>
+  
+    <header id="LoginED" class="fixed-top">
+      <a href="/"><i class="fa-solid fa-angles-left goBackButtonColor" ></i ></a>
+          <div id="headerUsername" type="text" name="username" class="welcomeWord"></div> 
+  
+        <form method="post" action="/logout" >
+          <button type="submit" class="logoutButton" >
+            <i class="fa-solid fa-arrow-right-from-bracket "></i>
+          </button>
+        </form>
+    </header>
+  <!-- ---------------------------header------------------------------------- -->
+  <div  class="update-box">
+      <h2>Payment Success La</h2>
+      <a href="/studentCalendarPage.html">
+        <button id="submit" type="submit" >睇多次日期先！</button>
+      </a>
+</div>
+    <!-- ---------------------------footer------------------------------------- -->
+    <footer class="d-flex justify-content-evenly fixed-bottom mt-10">
+      <a href="/index.html"><i class="fa-solid fa-house"style="color: #102f47"></i></a>
+      <a href="/studentCalendarPage.html"><i class="fa-regular fa-calendar-days" style="color: #102f47"></i></a>
+      <a href="/createEventPage.html"><i class="fa-solid fa-plus"style="color:#102f47"></i></i></a>
+      <a href="/updateBasicInfo.html"><i class="fa-solid fa-gear"style="color:#102f47"></i></a>
+    </footer>
+    <!-- ---------------------------footer------------------------------------- -->
+    <script  src="payment.js"> </script>
+    <script  src="updatePW.js"> </script>
+  </body>
+</html>

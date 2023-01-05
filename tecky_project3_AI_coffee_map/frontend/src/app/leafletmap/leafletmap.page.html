@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>FIND CAFE...</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  {{queryParamsTap$ | async }}
+  <div class="map-container"></div>
+  <ion-button
+    shape="round"
+    expand="block"
+    size="small"
+    fill="outline"
+    (click)="getCurrentLocation();"
+  >
+    <ion-icon name="location-outline"></ion-icon>
+    獲取當前位置
+  </ion-button>
+  <ng-container *ngIf="gettingCurrentLocation">
+    <div style="text-align: center; font-size: 10pt">定位中...</div>
+  </ng-container>
+</ion-content>

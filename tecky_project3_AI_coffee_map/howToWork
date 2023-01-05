@@ -1,0 +1,15 @@
+if you cd Desktop/project3:
+
+open new terminal
+cd frontend/
+npm i
+ionic serve
+
+open new terminal
+cd backend/
+npm i 
+yarn knex migrate:latest
+npm start
+
+open new terminal
+npx ts-node crewlerUpdated.ts     

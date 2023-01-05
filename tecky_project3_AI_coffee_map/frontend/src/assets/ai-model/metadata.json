@@ -1,0 +1,21 @@
+{
+  "tfjsVersion": "1.3.1",
+  "tmVersion": "2.4.5",
+  "packageVersion": "0.8.4-alpha2",
+  "packageName": "@teachablemachine/image",
+  "timeStamp": "2022-12-21T10:32:54.859Z",
+  "userMetadata": {},
+  "modelName": "tm-my-image-model",
+  "labels": [
+    "Lavazza_Qualita_Oro",
+    "Lavazza_Qualita_Oro_Mountain_Grown",
+    "UCC_The_Blend_117",
+    "illy_Coffee_Classic_roast",
+    "illy_Coffee_Bold_Roast",
+    "Starbucks_Caffe_Latte",
+    "NO_DATA",
+    "Starbucks_Signature_Chocolate",
+    "Bushells_Coffee_Classic"
+  ],
+  "imageSize": 224
+}

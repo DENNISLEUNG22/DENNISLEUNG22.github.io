@@ -1,0 +1,40 @@
+/*---------- Remark ----------*/
+-->for the shop table
+`all the data scrapped by google map without any library (more flexible)
+`it is normal that some data will be null
+`google map will keep update, therefore, I need to scrapped the website in different time log
+`owner_id must be null at first, it is provided by the users later 
+
+-->for the user table 
+`due to unfinished log-in/register system
+we need to create fake user and connect to shop table with owner_id
+`why separated the user table and shop table 
+normally, one user can own multi-shop 
+but, shop can only have one admin account in this case 
+too trouble and complicated to fixed it
+so, give up 
+
+--> for the coffee table 
+`all data should be provided by user, which means shop owner can also comment other shop
+`name Eg, americano, latte 
+
+--> for the coffee_content table 
+`one coffee may included multi-coffee beans 
+so, must separated bean, coffee_content, and coffee table 
+for frontend filter and add additional function easily 
+
+--> for the bean table 
+`AI part: after training, the result should be show in the screen (only frontend and no need to insert any data in DB)
+
+--> for the coffee_variant table 
+`this variant means the size of coffee, eg, grande, large etc 
+`each size with different price 
+`make sense to separated this table too
+
+--> for the taste_report 
+`all type set to integer, and provided the selector in frontend for user choosing 
+
+--> for searching/ filter in the map 
+`four filter 
+`filter by...shop name, location, coffee_variant name, bean brand 
+`location can based on current location 

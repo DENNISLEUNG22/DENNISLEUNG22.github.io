@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>shop-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <!-- <div>id: {{id$ | async}}</div> -->
+    <!-- <div>{{shop.address}}</div>
+      <div>{{shop.is24}}</div>
+      <div>{{shop.address}}</div>
+      <div>{{shop.address}}</div>
+      <div>{{shop.address}}</div> -->
+    <ion-card>
+      <ion-card *ngFor="let shop of shops" [routerLink]="'/shop/' + shop.id">
+        <ion-card-header>
+          <ion-card-title>{{shop.name}}</ion-card-title>
+          <ion-card-subtitle>{{"地址： "+shop.address}}</ion-card-subtitle>
+          <ion-card-subtitle
+            >{{"開始時間： "+shop.start_time}}</ion-card-subtitle
+          >
+          <ion-card-subtitle>{{"結束時間： "+shop.end_time}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-card>
+  </ion-card></ion-content
+>
+<!-- <div *ngIf="shop$ | async as shop; else loading">name: {{shop.name}}</div> -->
+<!-- <ng-template #loading>
+      <div class="ion-text-center ion-margin">Loading shop details...</div>
+      <ion-progress-bar type="indeterminate"></ion-progress-bar>
+    </ng-template> -->
+
+<!-- clock example- -->
+<!-- <div>clock: {{clock | async}}</div> -->
+<!-- {{ sessionTimeout | async }}  -->

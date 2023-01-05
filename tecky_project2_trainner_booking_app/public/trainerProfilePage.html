@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>trainer profile</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+    crossorigin="anonymous"
+  />
+  <!-- icon  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!--  fontAwesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <!-- local css -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="role.css" />
+</head>
+<body class="background">
+<!-- ---------------------------header------------------------------------- -->
+  <header id="notYetLogin" class="fixed-top ">
+    <a href="/"> <i class="fa-solid fa-angles-left goBackButtonColor"  ></i ></a>
+    <a href="/login.html" ><i class="fa-solid fa-person-circle-plus goBackButtonColor"></i ></a>
+  </header>
+
+  <header id="LoginED" class="fixed-top">
+    <a href="/"><i class="fa-solid fa-angles-left goBackButtonColor" ></i ></a>
+        <div id="headerUsername" type="text" name="username" class="welcomeWord"></div> 
+
+      <form method="post" action="/logout" >
+        <button type="submit" class="logoutButton" >
+          <i class="fa-solid fa-arrow-right-from-bracket "></i>
+        </button>
+      </form>
+  </header>
+<!-- ---------------------------header------------------------------------- -->
+  <!-- trainer description -->
+  <!--  -->
+  <!--  -->
+  <trainerINFO class="">
+    <avatar class="d-flex justify-content-center" style="font-size: 60px;">
+      <a href="#"><i class="fa-solid fa-clipboard-user"style="color:black
+        "></i></a>
+    </avatar>
+    <description>
+    <h1>"Trainer Name"</h1>
+    <h2>'Co-Founder, Special Strong'</h2>
+    <p>The Fitness Trainer will instruct or coach groups or individuals in exercise activities, demonstrate techniques and form, observe participants, and explain to them corrective measures to improve their skills.</p>
+    <br>
+  <!-- Looping Card --> 
+  <!-- all event of this this trainer -->
+  <div class="card text-center">
+    <div class="card-header">
+      Loop this card 
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title">Event title </h5>
+      <p class="card-text">Event description</p>
+      <a href="#" class="btn btn-primary">Join</a>
+    </div>
+  </div>
+    <!-- ---------------------------footer------------------------------------- -->
+    <footer class="d-flex justify-content-evenly fixed-bottom mt-10">
+      <a href="/index.html"><i class="fa-solid fa-house"style="color: #102f47"></i></a>
+      <a href="/studentCalendarPage.html"><i class="fa-regular fa-calendar-days" style="color: #102f47"></i></a>
+      <a href="/createEventPage.html"><i class="fa-solid fa-plus"style="color:#102f47"></i></i></a>
+      <a href="/updateBasicInfo.html"><i class="fa-solid fa-gear"style="color:#102f47"></i></a>
+    </footer>
+    <!-- ---------------------------footer------------------------------------- -->
+<script src="trainerProfile.js"></script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+:root {
+  --headerColor: rgb(16, 47, 71);
+  --footerColor: rgb(243, 193, 95);
+  --inputBoxColor: rgb(250, 145, 53);
+  --RedColor: rgb(243, 82, 82);
+  --wordColor: rgb(254, 246, 237);
+  --font-style: "Nunito Sans", sans-serif;
+}
+footer {
+  height: 50px;
+  background: var(--footerColor);
+  color: var(--headerColor);
+  font-weight: 100%;
+  font-size: 25px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background-color: var(--headerColor);
+  color: var(--footerColor);
+  font-size: 35px;
+  font-weight: 100%;
+}
+
+.optgroup {
+  max-width: max-content;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.background {
+  background: #fff;
+}
+.welcomeWord {
+  display: inline-flex;
+  font-size: 20px;
+  margin: 10px;
+}
+.goBackButtonColor {
+  color: var(--footerColor);
+}
+.logoutButton {
+  color: var(--footerColor);
+  border: none;
+  top: 0;
+  right: 0;
+  background: transparent;
+}
+/* Not important. General styling
+------------------------------------------ */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: Roboto, sans-serif;
+  background: #26a69a;
+  padding: 2rem 2rem 0;
+}
+.wrapper {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.wrapper > * {
+  margin: 0 1rem 1rem;
+}
+
+.card-img-overlay {
+  max-height: 300px;
+}
+
+.card-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  -webkit-filter: brightness(40%) !important;
+  filter: brightness(40%) !important;
+}
+
+.join-btn {
+  max-width: 50px;
+}
+.card-text {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.margin5px {
+  margin: 5px 0;
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}

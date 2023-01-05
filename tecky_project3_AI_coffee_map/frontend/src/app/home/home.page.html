@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Home page </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">If you love coffee...?</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- ------------上面係--header-------------------- -->
+  <!-- ------------下面係--leaflet in homepage-------------------- -->
+  <div class="map-container"></div>
+  <ion-button
+    shape="round"
+    expand="block"
+    size="small"
+    fill="outline"
+    (click)="getCurrentLocation();"
+  >
+    <ion-icon name="location-outline"></ion-icon>
+    獲取當前位置
+  </ion-button>
+  <ng-container *ngIf="gettingCurrentLocation">
+    <br />
+    <div style="text-align: center; font-size: 10pt">定位中...</div>
+  </ng-container>
+  <!-- ------------上面係--leaflet in homepage-------------------- -->
+
+  <ion-card>
+    <ion-card *ngFor="let shop of shops" [routerLink]="'/shop/' + shop.id">
+      <ion-card-header>
+        <ion-card-title [ngStyle]="{'color': shop.color}"
+          >{{shop.name}}</ion-card-title
+        >
+        <ion-card-subtitle>{{shop.address}}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </ion-card>
+  <!-- ------------下面係--睇 買 台 工 button-------------------- -->
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let icon of routeIcon"
+        ><ion-card class="seebutton"
+          ><a [routerLink]="icon.href">
+            <ion-icon class="icon" [name]="icon.icon"></ion-icon
+            ><ion-card-title class="text">{{icon.name}}</ion-card-title>
+          </a></ion-card
+        ></ion-col
+      >
+    </ion-row>
+  </ion-grid> -->
+  <!-- ------------上面係--睇 買 台 工  button-------------------- -->
+  <!-- <ion-virtual-scroll *ngFor="let cafe of newCafePush">
+    <a [routerLink]="cafe.href">
+      <ion-card class="lala">{{cafe.name}}</ion-card>
+    </a>
+  </ion-virtual-scroll>
+
+  <ion-slides>
+    <ion-col *ngFor="let cafe of newCafePush"
+      ><a [routerLink]="cafe.href">
+        <ion-card class="lala">{{cafe.name}}</ion-card>
+      </a></ion-col
+    >
+  </ion-slides> -->
+  <!-- ------------上面係-CAFE BUTTON--------------------- -->
+</ion-content>

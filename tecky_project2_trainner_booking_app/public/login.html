@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+        <!-- bootstrap only -->
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+        crossorigin="anonymous"
+      />
+      <!-- icon  -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+      />
+      <!--  font-awesome-->
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="role.css" />
+    </head>
+    <body class="background">
+  <!-- ---------------------------header------------------------------------- -->
+      <header id="notYetLogin" class="fixed-top ">
+        <a href="/"> <i class="fa-solid fa-angles-left goBackButtonColor"  ></i ></a>
+        <a href="/login.html" ><i class="fa-solid fa-person-circle-plus goBackButtonColor"></i ></a>
+      </header>
+  
+      <header id="LoginED" class="fixed-top">
+        <a href="/"><i class="fa-solid fa-angles-left goBackButtonColor" ></i ></a>
+            <div id="headerUsername" type="text" name="username" class="welcomeWord"></div> 
+  
+          <form method="post" action="/logout" >
+            <button type="submit" class="logoutButton" >
+              <i class="fa-solid fa-arrow-right-from-bracket "></i>
+            </button>
+          </form>
+      </header>
+  <!-- ---------------------------header------------------------------------- -->
+    <div  class="update-box">
+      <h2>登入</h2>
+      <form id="login" method="post" action="/login">
+        <div class="user-box">
+          <input type="email" name="email" required="" />
+          <label>電郵</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="password" required="" />
+          <label>密碼</label>
+        </div>
+        <div class="button-form">
+          <button id="submit" type="submit">登入！</button>
+          <div id="register">
+            尚未有帳戶？
+            <div>
+              <a href="/register.html">建立帳戶</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- ---------------------------footer------------------------------------- -->
+    <footer class="d-flex justify-content-evenly fixed-bottom mt-10">
+      <a href="/index.html"><i class="fa-solid fa-house"style="color: #102f47"></i></a>
+      <a href="/studentCalendarPage.html"><i class="fa-regular fa-calendar-days" style="color: #102f47"></i></a>
+      <a href="/createEventPage.html"><i class="fa-solid fa-plus"style="color:#102f47"></i></i></a>
+      <a href="/updateBasicInfo.html"><i class="fa-solid fa-gear"style="color:#102f47"></i></a>
+    </footer>
+    <!-- ---------------------------footer------------------------------------- -->
+    <script src="login.js"></script>
+  </body>
+</html>

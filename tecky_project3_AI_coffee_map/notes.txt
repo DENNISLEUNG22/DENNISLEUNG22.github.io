@@ -1,0 +1,78 @@
+---------- How to run server in frontend ----------
+cd frontend 
+yarn 
+yarn start
+
+---------- How to run db in backend ----------
+--> create ".env" file
+DB_NAME=project3
+DB_USER=project3
+DB_PASSWORD=project3
+
+psql -U postgres
+create database project3;
+CREATE USER project3 WITH PASSWORD 'project3' SUPERUSER;
+\c project3
+\d
+select * from shop;
+
+
+---------- What do I do in scrapping folder----------
+cd scrapping
+python3
+python3 -m venv myenv
+source myenv/bin/activate
+pip3 install google-search-results
+
+--> file "scrap.py"
+--> create google API key
+
+
+--------- About scrapping (express with mvc, typescript, angular)----------
+(1) create folder "openrest-server"
+mkdir openrest-server 
+cd openrest-server 
+npm init -y
+npm i typescript ts-node @types/node
+npm i express @types/express
+npm i listening-on
+npm i playwright
+
+(2) create file "crawler.ts" under "node_modules" folder 
+-- refer to "notesDemo.ts" (="crawler.ts")
+-- remark --1 and run 
+npx ts-node crawler.ts
+
+(3) get the shop list, 攞 div 裡邊的 ul
+-- remark --3
+-- stop in console.log("ul:", ul) and check 
+npx ts-node crawler.ts
+
+(4) get shop details from shop list, 攞 ul 裡邊的 li
+-- remark --4
+-- stop in //--/4 and check 
+npx ts-node crawler.ts
+
+(5) add {waitUntil: 'domcontentloaded'}
+-- remark --5
+
+(6) add for-loop
+-- remark --6
+
+(7) fix problem of for-loop 
+-- remark --7
+
+(8) get the shop details (similar to point(3))
+-- remark --8
+22:27 not yet finish 
+
+
+
+---------- How to add the leaflet search data ----------
+(1) shopRouter.ts
+create 'get' method (line 15)
+
+(2) leafletmap.page.ts
+
+(3) shop.service.ts
+add findByLocation function and return 

@@ -1,0 +1,20 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
+
+<div class="navigation">
+  <ul>
+    <li
+      *ngFor="let tab of tabs"
+      class="list"
+      [class.active]="tab == activeTab"
+      (click)="selectTab(tab)"
+    >
+      <a [routerLink]="tab.href">
+        <span class="icon"> <ion-icon [name]="tab.icon"></ion-icon></span>
+        <span class="text">{{ tab.name }}</span>
+      </a>
+    </li>
+    <div class="indicator"></div>
+  </ul>
+</div>

@@ -1,0 +1,149 @@
+:root {
+  --headerColor: rgb(16, 47, 71);
+  --footerColor: rgb(243, 193, 95);
+  --inputBoxColor: rgb(250, 145, 53);
+  --RedColor: rgb(243, 82, 82);
+  --wordColor: rgb(254, 246, 237);
+  --font-style: "Nunito Sans", sans-serif;
+}
+footer {
+  height: 50px;
+  background: var(--footerColor);
+  color: var(--headerColor);
+  font-weight: 100%;
+  font-size: 25px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background-color: var(--headerColor);
+  color: var(--footerColor);
+  font-size: 35px;
+  font-weight: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-style);
+}
+.background {
+  background: #FFF;
+}
+.welcomeWord{
+  display: inline-flex;
+  font-size: 20px;
+  margin: 10px;
+}
+.goBackButtonColor{
+  color: var(--footerColor);
+}
+
+.logoutButton {
+  color: var(--footerColor);
+  border: none;
+  top: 0;
+  right: 0;
+  background: transparent;
+}
+
+.register-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: var(--inputBoxColor);
+  box-shadow: 0 15px 25px rgb(254, 246, 237);
+  border-radius: 10px;
+}
+
+.register-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: var(--wordColor);
+  text-align: center;
+}
+
+.register-box .user-box input {
+  position: relative;
+  width: 100%;
+  padding: 2px 0;
+  font-size: 16px;
+  color: var(--wordColor);
+  margin-bottom: 5px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.register-box .user-box label {
+  position: relative;
+  left: 0;
+  top: -40px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.register-box .user-box input:focus ~ label,
+.register-box .user-box input:valid ~ label {
+  top: -65px;
+  left: 0;
+  color: var(--headerColor);
+  font-size: 12px;
+}
+
+#submit {
+  padding: 10px 20px;
+  background-color: var(--headerColor);
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  border: 1px solid #fff;
+  margin: auto;
+}
+
+#submit:hover {
+  background: var(--RedColor);
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #fef6ed, 0 0 25px #fef6ed, 0 0 50px #fef6ed,
+    0 0 100px #fef6ed;
+}
+
+.button-form {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.selection {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: var(--wordColor);
+  margin: 10px 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
